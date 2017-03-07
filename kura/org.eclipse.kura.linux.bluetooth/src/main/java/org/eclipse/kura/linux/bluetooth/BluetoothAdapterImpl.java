@@ -117,7 +117,7 @@ public class BluetoothAdapterImpl implements BluetoothAdapter {
     public void startLeScan(BluetoothLeScanListener listener) {
         killLeScan();
         this.bls = new BluetoothLeScanner();
-        this.bls.startScan(this.name, listener);
+        this.bls.startScan(this.adapter, listener);
     }
 
     @Override
@@ -137,7 +137,7 @@ public class BluetoothAdapterImpl implements BluetoothAdapter {
     @Override
     public void killLeScan() {
         if (this.bls != null) {
-            this.bls.killScan();
+            this.bls.killScan(this.adapter);
             this.bls = null;
         }
     }

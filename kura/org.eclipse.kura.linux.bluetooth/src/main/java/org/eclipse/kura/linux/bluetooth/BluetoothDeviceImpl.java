@@ -24,12 +24,10 @@ public class BluetoothDeviceImpl implements BluetoothDevice {
     public static final int DEVICE_TYPE_LE = 0x002;
     public static final int DEVICE_TYPE_UNKNOWN = 0x000;
 
-    private final String m_name;
-    private final String m_address;
+    private final tinyb.BluetoothDevice device;
 
-    public BluetoothDeviceImpl(String address, String name) {
-        this.m_address = address;
-        this.m_name = name;
+    public BluetoothDeviceImpl(tinyb.BluetoothDevice device) {
+        this.device = device;
     }
 
     // --------------------------------------------------------------------
@@ -39,17 +37,17 @@ public class BluetoothDeviceImpl implements BluetoothDevice {
     // --------------------------------------------------------------------
     @Override
     public String getName() {
-        return this.m_name;
+        return this.device.getName();
     }
 
     @Override
     public String getAdress() {
-        return this.m_address;
+        return this.device.getAddress();
     }
 
     @Override
     public int getType() {
-        return DEVICE_TYPE_UNKNOWN;
+        return DEVICE_TYPE_UNKNOWN; // TO BE MODIFIED!!!!
     }
 
     @Override
@@ -67,7 +65,7 @@ public class BluetoothDeviceImpl implements BluetoothDevice {
 
     @Override
     public BluetoothGatt getBluetoothGatt() {
-        return new BluetoothGattImpl(this.m_address);
+        return new BluetoothGattImpl(this.address); // TO BE FIXED!!!
     }
 
 }
