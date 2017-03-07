@@ -38,6 +38,7 @@ public class BluetoothServiceImpl implements BluetoothService {
         logger.info("Activating Bluetooth Service...");
         componentContext = context;
         bluetoothManager = BluetoothManager.getBluetoothManager();
+        System.out.println("prova");
     }
 
     protected void deactivate() {
